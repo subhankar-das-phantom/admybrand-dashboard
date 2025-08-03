@@ -134,27 +134,27 @@ const AboutPage = () => {
         animate="visible"
         className="space-y-12"
       >
-        {/* Navigation */}
+        {/* Navigation with Dark Mode */}
         <motion.div variants={itemVariants} className="flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors duration-300 group"
+            className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 group"
           >
-            <div className="p-2 rounded-xl bg-gray-100 group-hover:bg-blue-50 transition-colors duration-300">
+            <div className="p-2 rounded-xl bg-gray-100 dark:bg-gray-800 group-hover:bg-blue-50 dark:group-hover:bg-blue-900 transition-colors duration-300">
               <ArrowLeft className="w-5 h-5" />
             </div>
             <span className="font-semibold">Back to Dashboard</span>
           </Link>
 
-          <div className="text-sm text-gray-500">
+          <div className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">
             {isClient && `Last updated: ${currentTime}`}
           </div>
         </motion.div>
 
-        {/* Hero Section */}
+        {/* Hero Section - Gradients work well in both modes */}
         <motion.div 
           variants={heroVariants}
-          className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden"
+          className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 dark:from-blue-800 dark:via-purple-800 dark:to-indigo-900 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden transition-colors duration-300"
         >
           {/* Background Animation */}
           <div className="absolute inset-0">
@@ -173,7 +173,7 @@ const AboutPage = () => {
             </motion.div>
 
             <motion.h1 
-              className="text-5xl lg:text-6xl font-bold mb-6"
+              className="text-5xl lg:text-6xl font-bold mb-6 text-white"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.7 }}
@@ -182,7 +182,7 @@ const AboutPage = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed"
+              className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed text-white"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.9 }}
@@ -209,12 +209,12 @@ const AboutPage = () => {
           </div>
         </motion.div>
 
-        {/* Stats Section */}
+        {/* Stats Section with Dark Mode */}
         <motion.div variants={itemVariants} className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              className="bg-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -223,17 +223,17 @@ const AboutPage = () => {
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4 text-white">
                 {stat.icon}
               </div>
-              <p className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</p>
-              <p className="text-gray-600 text-sm">{stat.label}</p>
+              <p className="text-3xl font-bold text-gray-900 dark:text-white mb-2 transition-colors duration-300">{stat.number}</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Features Section */}
+        {/* Features Section with Dark Mode */}
         <motion.div variants={itemVariants} className="space-y-8">
           <div className="text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Key Features</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Key Features</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
               Discover what makes our dashboard special and how it can transform your business intelligence workflow.
             </p>
           </div>
@@ -242,7 +242,7 @@ const AboutPage = () => {
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 group"
                 whileHover={{ y: -5 }}
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -251,18 +251,18 @@ const AboutPage = () => {
                 <div className={`w-16 h-16 ${feature.color} rounded-2xl flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform duration-300`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">{feature.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed transition-colors duration-300">{feature.description}</p>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Technology Stack */}
-        <motion.div variants={itemVariants} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-3xl p-8 lg:p-12">
+        {/* Technology Stack with Dark Mode */}
+        <motion.div variants={itemVariants} className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 lg:p-12 transition-colors duration-300">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Technology Stack</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 transition-colors duration-300">Technology Stack</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors duration-300">
               Built with modern, industry-leading technologies for optimal performance and developer experience.
             </p>
           </div>
@@ -271,7 +271,7 @@ const AboutPage = () => {
             {technologies.map((tech, index) => (
               <motion.div
                 key={tech.name}
-                className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-600 hover:shadow-xl transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -280,8 +280,8 @@ const AboutPage = () => {
                 <div className="flex items-center space-x-4">
                   <div className="text-4xl">{tech.logo}</div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">{tech.name}</h3>
-                    <p className="text-gray-600 text-sm">{tech.description}</p>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white transition-colors duration-300">{tech.name}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">{tech.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -289,45 +289,45 @@ const AboutPage = () => {
           </div>
         </motion.div>
 
-        {/* Mission Section */}
-        <motion.div variants={itemVariants} className="bg-white rounded-3xl shadow-xl p-8 lg:p-12">
+        {/* Mission Section with Dark Mode */}
+        <motion.div variants={itemVariants} className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 lg:p-12 transition-colors duration-300">
           <div className="flex flex-col lg:flex-row items-center space-y-8 lg:space-y-0 lg:space-x-12">
             <div className="lg:w-1/2">
               <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-pink-500 rounded-2xl flex items-center justify-center mb-8">
                 <Lightbulb className="w-10 h-10 text-white" />
               </div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">Our Mission</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8 transition-colors duration-300">
                 To democratize business intelligence by creating beautiful, intuitive, and powerful analytics tools 
                 that help businesses make data-driven decisions with confidence.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                  <span className="text-gray-700">Simplify complex data visualization</span>
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">Simplify complex data visualization</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-700">Provide actionable business insights</span>
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">Provide actionable business insights</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                  <span className="text-gray-700">Deliver exceptional user experiences</span>
+                  <span className="text-gray-700 dark:text-gray-300 transition-colors duration-300">Deliver exceptional user experiences</span>
                 </div>
               </div>
             </div>
 
             <div className="lg:w-1/2">
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Project Highlights</h3>
+              <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 rounded-2xl p-8 border border-blue-100 dark:border-blue-800 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">Project Highlights</h3>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                       <Award className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Modern Design System</h4>
-                      <p className="text-gray-600 text-sm">Consistent, accessible, and beautiful UI components</p>
+                      <h4 className="font-semibold text-gray-900 dark:text-white transition-colors duration-300">Modern Design System</h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Consistent, accessible, and beautiful UI components</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -335,8 +335,8 @@ const AboutPage = () => {
                       <Coffee className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Developer Experience</h4>
-                      <p className="text-gray-600 text-sm">Built with TypeScript and modern tooling for maintainability</p>
+                      <h4 className="font-semibold text-gray-900 dark:text-white transition-colors duration-300">Developer Experience</h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Built with TypeScript and modern tooling for maintainability</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-4">
@@ -344,8 +344,8 @@ const AboutPage = () => {
                       <Rocket className="w-4 h-4 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-gray-900">Performance Optimized</h4>
-                      <p className="text-gray-600 text-sm">Fast loading times and smooth interactions</p>
+                      <h4 className="font-semibold text-gray-900 dark:text-white transition-colors duration-300">Performance Optimized</h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Fast loading times and smooth interactions</p>
                     </div>
                   </div>
                 </div>
@@ -354,10 +354,10 @@ const AboutPage = () => {
           </div>
         </motion.div>
 
-        {/* Contact Section */}
-        <motion.div variants={itemVariants} className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl p-8 lg:p-12 text-white text-center">
-          <h2 className="text-4xl font-bold mb-6">Get In Touch</h2>
-          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+        {/* Contact Section - Gradients work well in both modes */}
+        <motion.div variants={itemVariants} className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-800 dark:to-purple-800 rounded-3xl p-8 lg:p-12 text-white text-center transition-colors duration-300">
+          <h2 className="text-4xl font-bold mb-6 text-white">Get In Touch</h2>
+          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto text-white">
             Have questions about the dashboard or want to collaborate? We'd love to hear from you!
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -372,11 +372,11 @@ const AboutPage = () => {
           </div>
         </motion.div>
 
-        {/* Footer Navigation */}
-        <motion.div variants={itemVariants} className="text-center pt-8 border-t border-gray-200">
+        {/* Footer Navigation with Dark Mode */}
+        <motion.div variants={itemVariants} className="text-center pt-8 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
           <Link
             href="/"
-            className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors duration-300 font-semibold text-lg"
+            className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-semibold text-lg"
           >
             <ArrowLeft className="w-5 h-5" />
             <span>Return to Dashboard</span>

@@ -2,9 +2,7 @@
 const nextConfig = {
   devIndicators: false,
 
-  experimental: {
-    devToolsToolbar: false,
-  },
+  
 };
 
 export default nextConfig;
