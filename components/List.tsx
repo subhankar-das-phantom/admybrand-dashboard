@@ -7,7 +7,7 @@ type Props = {
 };
 
 const List = ({ items }: Props) => (
-  <ul>
+  <ul className="space-y-4">
     {items.map((item) => (
       <li key={item.id}>
         <ListItem data={item} />
